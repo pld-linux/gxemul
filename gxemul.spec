@@ -7,6 +7,7 @@ Release:	0.1
 License:	BSD-like
 Group:		Applications/Emulators
 Source0:	http://www.mdstud.chalmers.se/~md1gavan/mips64emul/src/%{name}-%{realver}.tar.gz
+# Source0-md5:	5dbe555130c0abde4f8e8b7f157c95d2
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,14 +45,14 @@ powinien kompilowaæ siê i dzia³aæ na dowolnym systemie uniksowym.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_bindir}
+install %{name} $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README
+%doc README BUGS HISTORY RELEASE TODO
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
+%{_bindir}/%{name}
