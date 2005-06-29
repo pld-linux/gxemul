@@ -1,45 +1,43 @@
-%define		realver	20040723
 Summary:	MIPS machine emulator
 Summary(pl):	Emulator maszyn MIPS
-Name:		mips64emul
-Version:	0.1.1.%{realver}
+Name:		gxemul
+Version:	0.3.4
 Release:	0.1
 License:	BSD-like
 Group:		Applications/Emulators
-Source0:	http://www.mdstud.chalmers.se/~md1gavan/mips64emul/src/%{name}-%{realver}.tar.gz
-# Source0-md5:	5dbe555130c0abde4f8e8b7f157c95d2
+Source0:	http://gavare.se/gxemul/src/%{name}-%{version}.tar.gz
+# Source0-md5:	dbf7ef59d2bb8f1e3082d0fa5fb434af
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-mips64emul is a MIPS machine emulator. The goals are to emulate
-MIPS-like CPUs and enough surrounding hardware to fake real machines,
-capable of running real (unmodified) operating systems (such as
-NetBSD, Linux, or OpenBSD), and to assist in experimenting with MIPS
-in general. This is a spare time hobby project, and many things are
-not implemented yet. The emulator is written in C, does not depend on
-any third-party libraries (except X11, which is optional), and should
-compile and run on any Unix-like system.
+Gxemul is a MIPS machine emulator. The goals are to emulate MIPS-like
+CPUs and enough surrounding hardware to fake real machines, capable of
+running real (unmodified) operating systems (such as NetBSD, Linux, or
+OpenBSD), and to assist in experimenting with MIPS in general. This is
+a spare time hobby project, and many things are not implemented yet.
+The emulator is written in C, does not depend on any third-party
+libraries (except X11, which is optional), and should compile and run
+on any Unix-like system.
 
 %description -l pl
-mips64emul to emulator maszyn MIPS. Celem jest emulowanie procesorów
-MIPS i wystarczaj±cej ilo¶ci otaczaj±cego je sprzêtu, aby udawa³y
-prawdziwe maszyny, na których mog± dzia³aæ prawdziwe (nie
-zmodyfikowane) systemy operacyjne (takie jak NetBSD, Linux czy
-OpenBSD) oraz pomoc przy eksperymentowaniu z architektur± MIPS. Jest
-to projekt rozwijany jako hobby w wolnym czasie i wiele rzeczy nie
-jest jeszcze zaimplementowane. Emulator jest pisany w C, nie zale¿y od
-¿adnych zewnêtrznych bibliotek (z wyj±tkiem opcjonalnych X11) i
-powinien kompilowaæ siê i dzia³aæ na dowolnym systemie uniksowym.
+Gxemul to emulator maszyn MIPS. Celem jest emulowanie procesorów MIPS
+i wystarczaj±cej ilo¶ci otaczaj±cego je sprzêtu, aby udawa³y prawdziwe
+maszyny, na których mog± dzia³aæ prawdziwe (nie zmodyfikowane) systemy
+operacyjne (takie jak NetBSD, Linux czy OpenBSD) oraz pomoc przy
+eksperymentowaniu z architektur± MIPS. Jest to projekt rozwijany jako
+hobby w wolnym czasie i wiele rzeczy nie jest jeszcze
+zaimplementowane. Emulator jest pisany w C, nie zale¿y od ¿adnych
+zewnêtrznych bibliotek (z wyj±tkiem opcjonalnych X11) i powinien
+kompilowaæ siê i dzia³aæ na dowolnym systemie uniksowym.
 
 %prep
-%setup -q -n %{name}-%{realver}
+%setup -q
 
 %build
 ./configure \
-	--mips16 \
-	--delays \
-	--caches
+	--enable-delays \
+	--enable-caches
 %{__make}
 
 %install
