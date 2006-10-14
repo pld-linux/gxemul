@@ -7,6 +7,7 @@ License:	BSD-like
 Group:		Applications/Emulators
 Source0:	http://gavare.se/gxemul/src/%{name}-%{version}.tar.gz
 # Source0-md5:	dbf7ef59d2bb8f1e3082d0fa5fb434af
+URL:		http://gavare.se/gxemul/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
