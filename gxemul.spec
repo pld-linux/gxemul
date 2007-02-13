@@ -1,5 +1,5 @@
 Summary:	MIPS machine emulator
-Summary(pl.UTF-8):   Emulator maszyn MIPS
+Summary(pl.UTF-8):	Emulator maszyn MIPS
 Name:		gxemul
 Version:	0.3.4
 Release:	0.1
